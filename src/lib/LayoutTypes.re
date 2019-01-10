@@ -194,7 +194,7 @@ module Create = (Node: Spec.Node, Encoding: Spec.Encoding) => {
   type node = {
     mutable selfRef: nativeint, /* a C pointer pointing to itself, needed for introp with C's memory management */
     mutable style: cssStyle,
-    layout: cssLayout,
+    mutable layout: cssLayout,
     mutable lineIndex: int,
     mutable parent: node,
     mutable nextChild: node,

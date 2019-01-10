@@ -1,0 +1,21 @@
+{
+  "name": "flex",
+  "sources": [{
+    "dir": "src/lib"
+  }],
+  "warnings": {
+    "number": "-27-45-40-26-32-44"
+  },
+  "bsc-flags": ["-g"],
+  "entries": [ {
+    "backend": "js",
+    "main-module": "Layout"
+  }, {
+    "backend": "native",
+    "main-module": "Layout"
+  }
+  ],
+  "namespace": true,
+  "refmt": 3
+}
+

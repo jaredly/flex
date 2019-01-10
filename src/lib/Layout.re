@@ -132,6 +132,19 @@ module Create = (Node: Spec.Node, Encoding: Spec.Encoding) => {
     | _ => raise(Invalid_argument("No cached measurement at " ++ string_of_int(i)))
     };
 
+  let invalidateCache = layout => {
+    layout.nextCachedMeasurementsIndex = 0;
+    layout.cachedLayout.widthMeasureMode = CSS_MEASURE_MODE_NEGATIVE_ONE_WHATEVER_THAT_MEANS;
+    layout.cachedLayout.heightMeasureMode = CSS_MEASURE_MODE_NEGATIVE_ONE_WHATEVER_THAT_MEANS;
+    layout.cachedLayout.computedWidth = negativeOne;
+    layout.cachedLayout.computedHeight = negativeOne
+  };
+
+  let rec invalidateAllCaches = (node: LayoutTypes.node) => {
+    invalidateCache(node.layout);
+    node.children |> Array.iter(invalidateAllCaches)
+  };
+
   /***
    * This is a wrapper around the layoutNodeImpl function. It determines
    * whether the layout request is redundant and can be skipped.
