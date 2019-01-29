@@ -2,11 +2,45 @@
   "name": "flex",
   "version": "1.2.2",
   "description": "Implementation CSS layout using pure Reason - powered by css-layout project",
-  "scripts": {
-    "build": "bsb -make-world -backend native",
-    "js": "bsb -make-world -backend js"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jordwalke/flex.git"
+  },
+  "keywords": [
+    "css",
+    "flex",
+    "flexbox",
+    "layout",
+    "reason",
+    "reasonml",
+    "ocaml"
+  ],
+  "esy": {
+    "build": [
+      [ "refmterr", "jbuilder", "build" ]
+    ],
+    "install": [
+      "esy-installer"
+    ],
+    "buildsInSource": "_build"
   },
   "dependencies": {
-    "bsb-native": "*"
+    "@opam/dune": "^1.0.0",
+    "@esy-ocaml/reason": "^3.0.0",
+    "refmterr": "^3.0.4"
+  },
+  "peerDependencies": {
+    "ocaml": "~4.6.0"
+  },
+  "devDependencies": {
+    "@opam/merlin": "*",
+    "@opam/js_of_ocaml": "*",
+    "@opam/js_of_ocaml-ppx": "*",
+    "@opam/js_of_ocaml-lwt": "*",
+    "ocaml": "~4.6.0"
+  },
+  "TODO": "Add back the jsoo targets and some scripts to run the benchmarks in various JS VMs.",
+  "scripts": {
+    "postinstall": "Welcome to Flex! You have installed Flex with npm, but Flex is a native Reason library. Use 'esy' to manage native Reason projects. See the README instructions - it's really easy."
   }
 }

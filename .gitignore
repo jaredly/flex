@@ -12,4 +12,3 @@ _dist
 .merlin
 src/.DS_Store
 .DS_Store
-src/**/*.js
